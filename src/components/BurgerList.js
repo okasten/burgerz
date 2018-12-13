@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
-import BurgerItem from './BurgerItem'
+import React, { Component } from "react";
+import BurgerItem from "./BurgerItem";
 
-const BurgerList = (props) => {
-  return (
-    <div className="BurgerList">
-      { /* Render Burger Items Here*/ }
-    </div>
-  )
+class BurgerList extends Component {
+
+  render() {
+    let list = this.props.burgers.map(burger => {
+      return (<BurgerItem burger={burger} id={burger.id} handleDelete={this.props.handleDelete} showBurger={this.props.showBurger}/>)
+    })
+
+    return (
+      <div className="BurgerList">
+        {list}
+      </div>);
+  }
 }
 
-export default BurgerList
+export default BurgerList;

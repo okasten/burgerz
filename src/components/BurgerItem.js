@@ -1,17 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-const BurgerItem = (props) => {
-  return (
-    <div>
-      <div className="BurgerItem">
-        { /* Name of Burger Here */ }
-      </div>
-      <div className="BurgerBottomBun">
-        <button onClick={console.log}>Show</button>
-        <button onClick={console.log}>Delete</button>
-      </div>
-    </div>
-  )
-}
+class BurgerItem extends Component{
 
-export default BurgerItem
+
+  render(){
+    return (
+      <div>
+        <div className="BurgerItem">
+          <h4>{this.props.burger.name}</h4>
+        </div>
+        <div className="BurgerBottomBun">
+          <button onClick={(e) => this.props.showBurger(this.props.burger)}>Show</button>
+          <button onClick={(e) => this.props.handleDelete(this.props.burger)}>Delete</button>
+        </div>
+      </div>
+    );
+  }
+
+};
+
+export default BurgerItem;
